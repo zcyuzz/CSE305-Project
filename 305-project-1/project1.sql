@@ -10,7 +10,7 @@ CREATE TABLE 'ORDER'
     AccountNumber VARCHAR(20) NOT NULL,
     Employee INTEGER NOT NULL,
     PRIMARY KEY(Id)
-)
+);
 
 CREATE TABLE CUSTOMER
 (
@@ -28,7 +28,7 @@ CREATE TABLE CUSTOMER
     StockPortfolio text[][],
     Rating FLOAT NOT NULL,
     PRIMARY KEY(AccountNumber)
-)
+);
 
 CREATE TABLE EMPLOYEE
 (
@@ -44,7 +44,7 @@ CREATE TABLE EMPLOYEE
     HourlyRate FLOAT NOT NULL,
     PRIMARY KEY(SocialSecurityNumber),
     UNIQUE(Telephone)
-    )
+);
 
 Create Table STOCK
 (
@@ -54,7 +54,7 @@ Create Table STOCK
     PricePerShare Float NOT NULL,
     NumberofShares INTEGER NOT NULL,
     PRIMARY KEY(Symbol)
-)
+);
 
 CREATE TABLE RECORD
 (
@@ -68,7 +68,7 @@ CREATE TABLE RECORD
     FOREIGN KEY (SocialSecurityNumber) REFERENCES EMPLOYEE(SocialSecurityNumber) 
     ON DELETE NO ACTION 
     ON UPDATE CASCADE
-    )
+);
 
 CREATE TABLE BELONGTO
 (
@@ -82,7 +82,7 @@ CREATE TABLE BELONGTO
     FOREIGN KEY (AccountNumber) REFERENCES CUSTOMER(AccountNumber) 
     ON DELETE NO ACTION 
     ON UPDATE CASCADE
-)
+);
 
 CREATE TABLE ISFROM
 (
@@ -95,7 +95,7 @@ CREATE TABLE ISFROM
     FOREIGN KEY (Symbol) REFERENCES STOCK(Symbol) 
     ON DELETE NO ACTION 
     ON UPDATE CASCADE
-)
+);
 CREATE TABLE EDIT
 (
     Date_Time DATATIME,
@@ -108,4 +108,4 @@ CREATE TABLE EDIT
     FOREIGN KEY (AccountNumber) REFERENCES CUSTOMER(Symbol) 
     ON DELETE NO ACTION 
     ON UPDATE CASCADE
-)
+);
